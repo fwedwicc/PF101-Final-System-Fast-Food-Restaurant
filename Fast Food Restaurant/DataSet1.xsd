@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="transno" msprop:Generator_ColumnVarNameInTable="columntransno" msprop:Generator_ColumnPropNameInRow="transno" msprop:Generator_ColumnPropNameInTable="transnoColumn" msprop:Generator_UserColumnName="transno" type="xs:string" minOccurs="0" />
+              <xs:element name="transdate" msprop:Generator_ColumnVarNameInTable="columntransdate" msprop:Generator_ColumnPropNameInRow="transdate" msprop:Generator_ColumnPropNameInTable="transdateColumn" msprop:Generator_UserColumnName="transdate" type="xs:string" minOccurs="0" />
+              <xs:element name="transmonth" msprop:Generator_ColumnVarNameInTable="columntransmonth" msprop:Generator_ColumnPropNameInRow="transmonth" msprop:Generator_ColumnPropNameInTable="transmonthColumn" msprop:Generator_UserColumnName="transmonth" type="xs:string" minOccurs="0" />
+              <xs:element name="foodcode" msprop:Generator_ColumnVarNameInTable="columnfoodcode" msprop:Generator_ColumnPropNameInRow="foodcode" msprop:Generator_ColumnPropNameInTable="foodcodeColumn" msprop:Generator_UserColumnName="foodcode" type="xs:string" minOccurs="0" />
+              <xs:element name="foodname" msprop:Generator_ColumnVarNameInTable="columnfoodname" msprop:Generator_ColumnPropNameInRow="foodname" msprop:Generator_ColumnPropNameInTable="foodnameColumn" msprop:Generator_UserColumnName="foodname" type="xs:string" minOccurs="0" />
+              <xs:element name="price" msprop:Generator_ColumnVarNameInTable="columnprice" msprop:Generator_ColumnPropNameInRow="price" msprop:Generator_ColumnPropNameInTable="priceColumn" msprop:Generator_UserColumnName="price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="qty" msprop:Generator_ColumnVarNameInTable="columnqty" msprop:Generator_ColumnPropNameInRow="qty" msprop:Generator_ColumnPropNameInTable="qtyColumn" msprop:Generator_UserColumnName="qty" type="xs:string" minOccurs="0" />
+              <xs:element name="totalprice" msprop:Generator_ColumnVarNameInTable="columntotalprice" msprop:Generator_ColumnPropNameInRow="totalprice" msprop:Generator_ColumnPropNameInTable="totalpriceColumn" msprop:Generator_UserColumnName="totalprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="grandtotal" msprop:Generator_ColumnVarNameInTable="columngrandtotal" msprop:Generator_ColumnPropNameInRow="grandtotal" msprop:Generator_ColumnPropNameInTable="grandtotalColumn" msprop:Generator_UserColumnName="grandtotal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nooffoods" msprop:Generator_ColumnVarNameInTable="columnnooffoods" msprop:Generator_ColumnPropNameInRow="nooffoods" msprop:Generator_ColumnPropNameInTable="nooffoodsColumn" msprop:Generator_UserColumnName="nooffoods" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
