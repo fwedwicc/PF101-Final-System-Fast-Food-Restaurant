@@ -40,13 +40,16 @@ Public Class Form1
         Dim array(CInt(len)) As Byte
         dr.GetBytes(0, 0, array, 0, CInt(len))
 
-
+        Dim margin As Integer = 6
+        Dim padding As Integer = 8
         pan = New Panel
         With pan
-            .Width = 150
-            .Height = 210
+            .Width = 146.7
+            .Height = 230
             .BackColor = Color.FromArgb(40, 40, 40)
             .Tag = dr.Item("foodcode").ToString
+            .Padding = New Padding(padding)
+            .Margin = New Padding(Margin)
         End With
         pan_top = New Panel
         With pan_top
@@ -65,8 +68,10 @@ Public Class Form1
             .Tag = dr.Item("foodcode").ToString
         End With
 
+        Dim topPadding As Integer = 12
         foodcode = New Label
         With foodcode
+            .Padding = New Padding(0, topPadding, 0, 0)
             .ForeColor = Color.Orange
             .Font = New Font("Segoe UI", 8, FontStyle.Bold)
             .TextAlign = ContentAlignment.MiddleLeft
@@ -85,7 +90,7 @@ Public Class Form1
         price = New Label
         With price
             .ForeColor = Color.White
-            .Font = New Font("Segoe UI", 8, FontStyle.Bold)
+            .Font = New Font("Segoe UI", 15, FontStyle.Bold)
             .TextAlign = ContentAlignment.MiddleLeft
             .Dock = DockStyle.Top
             .Tag = dr.Item("foodcode").ToString
@@ -95,9 +100,9 @@ Public Class Form1
         Dim bitmap As New System.Drawing.Bitmap(ms)
         img.BackgroundImage = bitmap
 
-        foodcode.Text = " Code   : " & dr.Item("foodcode").ToString
-        foodname.Text = " Name  : " & dr.Item("foodname").ToString
-        price.Text = " Price              : ₱ " & dr.Item("price").ToString
+        foodcode.Text = "Code: " & dr.Item("foodcode").ToString
+        foodname.Text = dr.Item("foodname").ToString
+        price.Text = "₱" & dr.Item("price").ToString
 
         pan.Controls.Add(price)
         pan.Controls.Add(foodname)
