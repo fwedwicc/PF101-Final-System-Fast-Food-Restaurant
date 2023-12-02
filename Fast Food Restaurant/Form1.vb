@@ -33,9 +33,7 @@ Public Class Form1
         End Try
         conn.Close()
     End Sub
-    Private Sub btn_ManageFoods_Click(sender As Object, e As EventArgs) Handles btn_ManageFoods.Click
-        frm_ManageFoods.ShowDialog()
-    End Sub
+
 
     Sub Load_controls()
         Dim len As Long = dr.GetBytes(0, 0, Nothing, 0, 0)
@@ -66,7 +64,7 @@ Public Class Form1
             .Dock = DockStyle.Top
             .Tag = dr.Item("foodcode").ToString
         End With
-       
+
         foodcode = New Label
         With foodcode
             .ForeColor = Color.Orange
@@ -97,9 +95,9 @@ Public Class Form1
         Dim bitmap As New System.Drawing.Bitmap(ms)
         img.BackgroundImage = bitmap
 
-        foodcode.Text = " Food Code   : " & dr.Item("foodcode").ToString
-        foodname.Text = " Food Name  : " & dr.Item("foodname").ToString
-        price.Text = " Price              : ₹ " & dr.Item("price").ToString
+        foodcode.Text = " Code   : " & dr.Item("foodcode").ToString
+        foodname.Text = " Name  : " & dr.Item("foodname").ToString
+        price.Text = " Price              : ₱ " & dr.Item("price").ToString
 
         pan.Controls.Add(price)
         pan.Controls.Add(foodname)
@@ -174,8 +172,8 @@ Public Class Form1
                 grandtotal = grandtotal + DataGridView1.Rows(i).Cells(5).Value
 
             Next
-            lbl_overallTotal.Text = Format(CDec(grandtotal), "₹ #,##0.00")
-            lbl_GrandTotal.Text = Format(CDec(grandtotal), "₹ #,##0.00")
+            lbl_overallTotal.Text = Format(CDec(grandtotal), "₱ #,##0.00")
+            lbl_GrandTotal.Text = Format(CDec(grandtotal), "₱ #,##0.00")
             lbl_tot.Text = grandtotal
         Catch ex As Exception
 
@@ -211,40 +209,31 @@ Public Class Form1
         txt_BalanceAmount.Clear()
         txt_receivedAmount.Clear()
     End Sub
+
+    '---------------------All of the buttons in Form1 below---------------------
+
+    'Button for Managing Foods / Manage Foods Button
+    Private Sub btn_ManageFoods_Click(sender As Object, e As EventArgs) Handles btn_ManageFoods.Click
+        frm_ManageFoods.ShowDialog()
+    End Sub
+
+    'Button for new orders / New Order Button
     Private Sub btn_NewOrder_Click(sender As Object, e As EventArgs) Handles btn_NewOrder.Click
         new_order()
     End Sub
 
-    Private Sub txt_search_TextChanged(sender As Object, e As EventArgs) Handles txt_search.TextChanged
-        FlowLayoutPanel1.Controls.Clear()
-        FlowLayoutPanel1.AutoScroll = True
-        Try
-            conn.Open()
-            cmd = New MySqlCommand("SELECT `img`, `foodcode`, `foodname`, `price` FROM `tbl_food` WHERE foodcode like '%" & txt_search.Text & "%' or foodname like '%" & txt_search.Text & "%' or price like '%" & txt_search.Text & "%'", conn)
-            dr = cmd.ExecuteReader
-            While dr.Read
-                Load_controls()
-            End While
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-        conn.Close()
+    'Button for canceling Order / Cancel Order Button
+    Private Sub btn_CancelOrder_Click(sender As Object, e As EventArgs) Handles btn_CancelOrder.Click
+        frm_CancelOrder.ShowDialog()
     End Sub
-    Private Sub txt_receivedAmount_TextChanged(sender As Object, e As EventArgs) Handles txt_receivedAmount.TextChanged
-        Try
-            Dim grandtotal As Double = 0
-            For i As Double = 0 To DataGridView1.Rows.Count() - 1 Step +1
-                grandtotal = grandtotal + DataGridView1.Rows(i).Cells(5).Value
 
-            Next
-            txt_BalanceAmount.Text = txt_receivedAmount.Text - Format(CDec(grandtotal), "#,##0.00")
-            lbl_tot.Text = grandtotal
-        Catch ex As Exception
-
-        End Try
+    'Button for viewing the reports / Reports Button
+    Private Sub btn_Report_Click(sender As Object, e As EventArgs) Handles btn_Report.Click
+        frm_report.ShowDialog()
     End Sub
+
+    'Button for paying the items / Pay Button
     Private Sub btn_Pay_Click(sender As Object, e As EventArgs) Handles btn_Pay.Click
-
         If MsgBox("Are You Sure Order Conform ?", vbQuestion + vbYesNo) = vbYes Then
             If txt_receivedAmount.Text = String.Empty Then
                 MsgBox("Please Enter Receive Amount !", vbExclamation)
@@ -288,15 +277,7 @@ Public Class Form1
         new_order()
     End Sub
 
-   
-    Private Sub btn_CancelOrder_Click(sender As Object, e As EventArgs) Handles btn_CancelOrder.Click
-        frm_CancelOrder.ShowDialog()
-    End Sub
-
-    Private Sub btn_Report_Click(sender As Object, e As EventArgs) Handles btn_Report.Click
-        frm_report.ShowDialog()
-    End Sub
-
+    'Button for logging out / Exit Button
     Private Sub btn_Exit_Click(sender As Object, e As EventArgs) Handles btn_Exit.Click
         If MsgBox("Are you sure Exit !", vbQuestion + vbYesNo) = vbYes Then
             End
@@ -304,6 +285,40 @@ Public Class Form1
             Return
         End If
         End
+    End Sub
+
+    '---------------------All of the buttons in Form1 above---------------------
+
+    Private Sub txt_search_TextChanged_1(sender As Object, e As EventArgs) Handles txt_search.TextChanged
+        FlowLayoutPanel1.Controls.Clear()
+        FlowLayoutPanel1.AutoScroll = True
+        Try
+            conn.Open()
+            cmd = New MySqlCommand("SELECT `img`, `foodcode`, `foodname`, `price` FROM `tbl_food` WHERE foodcode like '%" & txt_search.Text & "%' or foodname like '%" & txt_search.Text & "%' or price like '%" & txt_search.Text & "%'", conn)
+            dr = cmd.ExecuteReader
+            While dr.Read
+                Load_controls()
+            End While
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        conn.Close()
+    End Sub
+
+
+    Private Sub txt_receivedAmount_TextChanged(sender As Object, e As EventArgs) Handles txt_receivedAmount.TextChanged
+        Try
+            Dim grandtotal As Double = 0
+            For i As Double = 0 To DataGridView1.Rows.Count() - 1 Step +1
+                grandtotal = grandtotal + DataGridView1.Rows(i).Cells(5).Value
+
+            Next
+            txt_BalanceAmount.Text = txt_receivedAmount.Text - Format(CDec(grandtotal), "#,##0.00")
+            lbl_tot.Text = grandtotal
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
 End Class
