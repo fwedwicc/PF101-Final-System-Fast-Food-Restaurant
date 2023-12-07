@@ -465,5 +465,7 @@ Public Class Form1
         txt_BalanceAmount.Clear()
         txt_receivedAmount.Clear()
     End Sub
-
+    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
+        Me.Close()
+    End Sub
 End Class
