@@ -52,6 +52,23 @@ Public Class frm_ManageFoods
         pic_foodimg.Image = Nothing
     End Sub
 
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        DataGridView1.Rows.Clear()
+        Try
+            conn.Open()
+            cmd = New MySqlCommand("SELECT `foodcode`, `foodname`, `price` FROM `tbl_food` WHERE foodcode like '%" & TextBox1.Text & "%' or foodname like '%" & TextBox1.Text & "%' or price like '%" & TextBox1.Text & "%'", conn)
+            dr = cmd.ExecuteReader
+            While dr.Read
+                DataGridView1.Rows.Add(DataGridView1.Rows.Count + 1, dr.Item("foodcode"), dr.Item("foodname"), dr.Item("price"))
+            End While
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        conn.Close()
+
+    End Sub
+
+    'Button for saving the items in manage foods form / Save Button
     Private Sub btn_save_Click(sender As Object, e As EventArgs) Handles btn_save.Click
         Try
             conn.Open()
@@ -75,7 +92,7 @@ Public Class frm_ManageFoods
             Else
                 MsgBox("Warning : Food Save Failed !", vbCritical, "FAST FOOD")
             End If
-           
+
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -87,6 +104,7 @@ Public Class frm_ManageFoods
         Form1.Load_Foods()
     End Sub
 
+    'Button for editing an item in manage foods form / Edit Button
     Private Sub btn_edit_Click(sender As Object, e As EventArgs) Handles btn_edit.Click
         Try
             conn.Open()
@@ -110,7 +128,7 @@ Public Class frm_ManageFoods
             Else
                 MsgBox("Warning : Food Edit Failed !", vbCritical, "FAST FOOD")
             End If
- 
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -121,6 +139,7 @@ Public Class frm_ManageFoods
         Form1.Load_Foods()
     End Sub
 
+    'Button for deleting an item in manage foods form / Delete Button
     Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
         If MsgBox("Are you Sure Delete this Food Product !", vbQuestion + vbYesNo, "FAST FOOD") = vbYes Then
             Try
@@ -135,7 +154,7 @@ Public Class frm_ManageFoods
                 Else
                     MsgBox("Warning : Food Delete Failed !", vbCritical, "FAST FOOD")
                 End If
- 
+
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
@@ -149,7 +168,11 @@ Public Class frm_ManageFoods
             Return
 
         End If
-        
+    End Sub
+
+    'Button for closing the manage foods form / Back Button
+    Private Sub btn_close_Click(sender As Object, e As EventArgs) Handles btn_close.Click
+        Me.Close()
     End Sub
 
     Private Sub btn_find_Click(sender As Object, e As EventArgs) Handles btn_find.Click
@@ -172,26 +195,6 @@ Public Class frm_ManageFoods
                 Dim ms As New MemoryStream(bytes)
                 pic_foodimg.Image = Image.FromStream(ms)
 
-            End While
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-        conn.Close()
-    End Sub
-
-
-    Private Sub btn_close_Click(sender As Object, e As EventArgs) Handles btn_close.Click
-        Me.Close()
-    End Sub
-
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-        DataGridView1.Rows.Clear()
-        Try
-            conn.Open()
-            cmd = New MySqlCommand("SELECT `foodcode`, `foodname`, `price` FROM `tbl_food` WHERE foodcode like '%" & TextBox1.Text & "%' or foodname like '%" & TextBox1.Text & "%' or price like '%" & TextBox1.Text & "%'", conn)
-            dr = cmd.ExecuteReader
-            While dr.Read
-                DataGridView1.Rows.Add(DataGridView1.Rows.Count + 1, dr.Item("foodcode"), dr.Item("foodname"), dr.Item("price"))
             End While
         Catch ex As Exception
             MsgBox(ex.Message)

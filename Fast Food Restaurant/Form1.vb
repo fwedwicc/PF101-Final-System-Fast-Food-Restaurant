@@ -1,6 +1,8 @@
 ﻿Imports System.IO
 Imports MySql.Data.MySqlClient
 Imports System.Drawing
+Imports System.Drawing.Printing
+
 Public Class Form1
     Private WithEvents pan As Panel
     Private WithEvents pan_top As Panel
@@ -8,6 +10,12 @@ Public Class Form1
     Private WithEvents foodname As Label
     Private WithEvents price As Label
     Private WithEvents img As CirclePicturBox
+
+    '---------------Print
+    Dim WithEvents PD As New PrintDocument
+    Dim PPD As New PrintPreviewDialog
+    Dim longpaper As Integer
+    '---------------Print
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dbconn()
         lbl_date.Text = Date.Now.ToString("yyyy-MM-dd")
@@ -15,6 +23,15 @@ Public Class Form1
         Load_Foods()
         auto_Transno()
     End Sub
+    '---------------Print
+    Sub changelongpaper()
+        Dim rowcount As Integer
+        longpaper = 0
+        rowcount = DataGridView1.Rows.Count
+        longpaper = rowcount * 15
+        longpaper = longpaper + 500
+    End Sub
+    '---------------Print
 
     Sub auto_Transno()
         Try
@@ -40,13 +57,13 @@ Public Class Form1
         Dim array(CInt(len)) As Byte
         dr.GetBytes(0, 0, array, 0, CInt(len))
 
-        Dim margin As Integer = 6
-        Dim padding As Integer = 8
+        Dim margin As Integer = 5
+        Dim padding As Integer = 10
         pan = New Panel
         With pan
-            .Width = 146.7
+            .Width = 149
             .Height = 230
-            .BackColor = Color.FromArgb(40, 40, 40)
+            .BackColor = Color.FromArgb(27,27,27)
             .Tag = dr.Item("foodcode").ToString
             .Padding = New Padding(padding)
             .Margin = New Padding(Margin)
@@ -55,7 +72,7 @@ Public Class Form1
         With pan_top
             .Width = 150
             .Height = 10
-            .BackColor = Color.FromArgb(40, 40, 40)
+            .BackColor = Color.FromArgb(27, 27, 27)
             .Dock = DockStyle.Top
             .Tag = dr.Item("foodcode").ToString
         End With
@@ -63,7 +80,7 @@ Public Class Form1
         img = New CirclePicturBox
         With img
             .Height = 120
-            .BackgroundImageLayout = ImageLayout.Stretch
+            .BackgroundImageLayout = ImageLayout.Zoom
             .Dock = DockStyle.Top
             .Tag = dr.Item("foodcode").ToString
         End With
@@ -266,7 +283,13 @@ Public Class Form1
                     Next
                     If i > 0 Then
                         If MsgBox("Print Bill ?", vbQuestion + vbYesNo) = vbYes Then
-                            frm_BillPrint.ShowDialog()
+                            '---------------Print
+                            'frm_BillPrint.ShowDialog()
+
+                            changelongpaper()
+                            PPD.Document = PD
+                            PPD.ShowDialog()
+                            '---------------Print
                         End If
                     Else
                         MsgBox("Warning : Some Failure !", vbExclamation)
@@ -282,15 +305,115 @@ Public Class Form1
         new_order()
     End Sub
 
-    'Button for logging out / Exit Button
-    Private Sub btn_Exit_Click(sender As Object, e As EventArgs) Handles btn_Exit.Click
-        If MsgBox("Are you sure Exit !", vbQuestion + vbYesNo) = vbYes Then
-            End
-        Else
-            Return
-        End If
-        End
+    '---------------Print
+    Private Sub PD_BeginPrint(sender As Object, e As PrintEventArgs) Handles PD.BeginPrint
+        Dim pagesetup As New PageSettings
+        pagesetup.PaperSize = New PaperSize("Custom", 415, longpaper)
+        PD.DefaultPageSettings = pagesetup
     End Sub
+    Private Sub PD_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PD.PrintPage
+        Dim f8 As New Font("Calibri", 8, FontStyle.Regular)
+        Dim f10 As New Font("Calibri", 10, FontStyle.Bold)
+        Dim f14 As New Font("Calibri", 14, FontStyle.Bold)
+
+        Dim leftmargin As Integer = PD.DefaultPageSettings.Margins.Left
+        Dim centermargin As Integer = PD.DefaultPageSettings.PaperSize.Width / 2
+        Dim rightmargin As Integer = PD.DefaultPageSettings.PaperSize.Width
+
+        Dim right As New StringFormat
+        Dim center As New StringFormat
+
+        right.Alignment = StringAlignment.Far
+        center.Alignment = StringAlignment.Center
+
+        Dim line As String
+        line = "_____________________________________________________________________"
+
+        Dim image As Image = Image.FromFile("C:\Users\Dell\Downloads\PF101 - Final System Assets\foodhub-logo.png")
+
+        Dim desiredWidth As Integer = 110
+        Dim desiredHeight As Integer = 31
+        Dim printAreaX As Integer = (e.PageBounds.Width - desiredWidth) / 2
+        Dim printAreaY As Integer = 25
+
+
+        e.Graphics.Clear(Color.FromArgb(37, 37, 37))
+        e.Graphics.DrawImage(image, New Rectangle(printAreaX, printAreaY, desiredWidth, desiredHeight))
+
+
+        e.Graphics.DrawString("Transaction No.", f8, Brushes.White, 10, 75)
+        e.Graphics.DrawString(":", f8, Brushes.White, 85, 75)
+        e.Graphics.DrawString(txt_transno.Text, f10, Brushes.White, 95, 75)
+
+        e.Graphics.DrawString("Cashier", f8, Brushes.White, 10, 90)
+        e.Graphics.DrawString(":", f8, Brushes.White, 85, 90)
+        e.Graphics.DrawString("Admin", f10, Brushes.White, 95, 90)
+
+        e.Graphics.DrawString("Date", f8, Brushes.White, 10, 105)
+        e.Graphics.DrawString(":", f8, Brushes.White, 85, 105)
+        e.Graphics.DrawString(Date.Now().ToString("yyyy-MM-dd"), f10, Brushes.White, 95, 105)
+
+        e.Graphics.DrawString(line, f8, Brushes.White, 11, 120)
+
+        ' Draw the DataGridView
+        Dim dgv As DataGridView = DataGridView1
+        Dim startX As Integer = 10
+        Dim startY As Integer = 140
+        Dim lineHeight As Integer = 18
+        Dim columnWidths As New List(Of Integer)
+        Dim headerMargin As Integer = 13
+        Dim dataMargin As Integer = 13
+
+        ' Draw column headers
+        For col As Integer = 0 To dgv.ColumnCount - 1
+            Dim headerText As String = dgv.Columns(col).HeaderText
+            Dim headerWidth As Integer = CInt(e.Graphics.MeasureString(headerText, f8).Width) + 2 * headerMargin
+            columnWidths.Add(headerWidth)
+            e.Graphics.DrawString(headerText, f8, Brushes.White, startX + headerMargin, startY)
+            startX += headerWidth
+        Next
+
+        ' Draw data
+        startY += lineHeight
+        Dim dgvHeight As Integer = dgv.RowCount * lineHeight
+        For row As Integer = 0 To dgv.RowCount - 1
+            startX = 10
+            For col As Integer = 0 To dgv.ColumnCount - 1
+                Dim cellValue As String = dgv.Rows(row).Cells(col).FormattedValue.ToString()
+                Dim cellWidth As Integer = columnWidths(col)
+                e.Graphics.DrawString(cellValue, f8, Brushes.White, startX + dataMargin, startY)
+                startX += cellWidth
+            Next
+            startY += lineHeight
+        Next
+
+        ' Calculate Y-axis position for the line based on the height of the DataGridView
+        Dim lineY As Integer = startY + 1
+
+        ' Draw the line
+        e.Graphics.DrawString(line, f8, Brushes.White, 11, lineY)
+
+        e.Graphics.DrawString("Items", f8, Brushes.White, 10, lineY + 20)
+        e.Graphics.DrawString(":", f8, Brushes.White, 85, lineY + 20)
+        e.Graphics.DrawString(lbl_noOfProducts.Text, f10, Brushes.White, 95, lineY + 20)
+
+        e.Graphics.DrawString("Total", f8, Brushes.White, 10, lineY + 35)
+        e.Graphics.DrawString(":", f8, Brushes.White, 85, lineY + 35)
+        e.Graphics.DrawString("₱" & lbl_tot.Text, f10, Brushes.White, 95, lineY + 35)
+
+        e.Graphics.DrawString("Cash", f8, Brushes.White, 10, lineY + 50)
+        e.Graphics.DrawString(":", f8, Brushes.White, 85, lineY + 50)
+        e.Graphics.DrawString("₱" & txt_receivedAmount.Text, f10, Brushes.White, 95, lineY + 50)
+
+        e.Graphics.DrawString("Change", f8, Brushes.White, 10, lineY + 65)
+        e.Graphics.DrawString(":", f8, Brushes.White, 85, lineY + 65)
+        e.Graphics.DrawString("₱" & txt_BalanceAmount.Text, f10, Brushes.White, 95, lineY + 65)
+
+        e.Graphics.DrawString("Thank you! Come again.", f14, Brushes.White, centermargin, lineY + 130, center)
+
+
+    End Sub
+    '---------------Print
 
     '---------------------All of the buttons in Form1 above---------------------
 
@@ -324,6 +447,23 @@ Public Class Form1
 
         End Try
 
+    End Sub
+
+    'Button for logging out / Exit Button
+    Private Sub btn_Exit_Click(sender As Object, e As EventArgs) Handles btn_Exit.Click
+        If MsgBox("Are you sure Exit !", vbQuestion + vbYesNo) = vbYes Then
+            End
+        Else
+            Return
+        End If
+        End
+    End Sub
+
+    'Button for clearing the food cart / Clear Button
+    Private Sub btn_Clear_Click(sender As Object, e As EventArgs) Handles btn_Clear.Click
+        DataGridView1.Rows.Clear()
+        txt_BalanceAmount.Clear()
+        txt_receivedAmount.Clear()
     End Sub
 
 End Class

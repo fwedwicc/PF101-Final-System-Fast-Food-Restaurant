@@ -23,13 +23,13 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle37 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle41 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle42 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle38 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle39 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle40 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.lbl_date = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -41,7 +41,7 @@ Partial Class Form1
         Me.txt_BalanceAmount = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txt_receivedAmount = New Guna.UI2.WinForms.Guna2TextBox()
         Me.lbl_tot = New System.Windows.Forms.Label()
-        Me.btn_Exit = New Guna.UI2.WinForms.Guna2Button()
+        Me.btn_Clear = New Guna.UI2.WinForms.Guna2Button()
         Me.btn_Pay = New Guna.UI2.WinForms.Guna2Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -67,10 +67,11 @@ Partial Class Form1
         Me.txt_search = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.Guna2ShadowPanel2 = New Guna.UI2.WinForms.Guna2ShadowPanel()
+        Me.btn_Exit = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2ShadowPanel3 = New Guna.UI2.WinForms.Guna2ShadowPanel()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.lbl_time = New System.Windows.Forms.Label()
         Me.lbl_date1 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel4.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2ShadowPanel1.SuspendLayout()
@@ -139,11 +140,12 @@ Partial Class Form1
         '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(214, 161)
+        Me.FlowLayoutPanel1.AutoScroll = True
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.FlowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(208, 156)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(10)
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(816, 564)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(822, 569)
         Me.FlowLayoutPanel1.TabIndex = 3
         '
         'Panel4
@@ -151,7 +153,7 @@ Partial Class Form1
         Me.Panel4.Controls.Add(Me.txt_BalanceAmount)
         Me.Panel4.Controls.Add(Me.txt_receivedAmount)
         Me.Panel4.Controls.Add(Me.lbl_tot)
-        Me.Panel4.Controls.Add(Me.btn_Exit)
+        Me.Panel4.Controls.Add(Me.btn_Clear)
         Me.Panel4.Controls.Add(Me.btn_Pay)
         Me.Panel4.Controls.Add(Me.Label5)
         Me.Panel4.Controls.Add(Me.Label4)
@@ -223,26 +225,28 @@ Partial Class Form1
         Me.lbl_tot.Text = "Label7"
         Me.lbl_tot.Visible = False
         '
-        'btn_Exit
+        'btn_Clear
         '
-        Me.btn_Exit.BackColor = System.Drawing.Color.Transparent
-        Me.btn_Exit.BorderRadius = 10
-        Me.btn_Exit.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btn_Exit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btn_Exit.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btn_Exit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btn_Exit.FillColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(21, Byte), Integer), CType(CType(21, Byte), Integer))
-        Me.btn_Exit.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_Exit.ForeColor = System.Drawing.Color.White
-        Me.btn_Exit.Location = New System.Drawing.Point(196, 162)
-        Me.btn_Exit.Name = "btn_Exit"
-        Me.btn_Exit.Size = New System.Drawing.Size(185, 45)
-        Me.btn_Exit.TabIndex = 24
-        Me.btn_Exit.Text = "Exit"
+        Me.btn_Clear.BackColor = System.Drawing.Color.Transparent
+        Me.btn_Clear.BorderRadius = 10
+        Me.btn_Clear.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_Clear.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btn_Clear.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btn_Clear.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btn_Clear.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_Clear.FillColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(21, Byte), Integer), CType(CType(21, Byte), Integer))
+        Me.btn_Clear.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Clear.ForeColor = System.Drawing.Color.White
+        Me.btn_Clear.Location = New System.Drawing.Point(196, 162)
+        Me.btn_Clear.Name = "btn_Clear"
+        Me.btn_Clear.Size = New System.Drawing.Size(185, 45)
+        Me.btn_Clear.TabIndex = 24
+        Me.btn_Clear.Text = "Clear"
         '
         'btn_Pay
         '
         Me.btn_Pay.BorderRadius = 10
+        Me.btn_Pay.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_Pay.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.btn_Pay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btn_Pay.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -329,41 +333,41 @@ Partial Class Form1
         'DataGridView1
         '
         Me.DataGridView1.AllowUserToAddRows = False
-        DataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(31, Byte), Integer))
-        DataGridViewCellStyle36.ForeColor = System.Drawing.Color.White
-        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle36
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(31, Byte), Integer))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(31, Byte), Integer))
-        DataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        DataGridViewCellStyle37.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle37.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        DataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle37
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.ColumnHeadersHeight = 30
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6})
-        DataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(31, Byte), Integer))
-        DataGridViewCellStyle41.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle41.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle41.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(31, Byte), Integer))
-        DataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle41
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(31, Byte), Integer))
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(31, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridView1.GridColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
         Me.DataGridView1.Location = New System.Drawing.Point(12, 89)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        DataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        DataGridViewCellStyle42.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle42.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        DataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle42
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.Size = New System.Drawing.Size(376, 390)
@@ -381,12 +385,12 @@ Partial Class Form1
         'Column2
         '
         Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column2.HeaderText = "FOOD CODE"
+        Me.Column2.HeaderText = "Food Code"
         Me.Column2.MinimumWidth = 6
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
         Me.Column2.Visible = False
-        Me.Column2.Width = 118
+        Me.Column2.Width = 105
         '
         'Column3
         '
@@ -399,10 +403,10 @@ Partial Class Form1
         'Column4
         '
         Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle38.Format = "₹ #,##0.00"
-        DataGridViewCellStyle38.NullValue = Nothing
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle38
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "₹ #,##0.00"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column4.HeaderText = "Price"
         Me.Column4.MinimumWidth = 6
         Me.Column4.Name = "Column4"
@@ -412,8 +416,8 @@ Partial Class Form1
         'Column5
         '
         Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle39
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column5.HeaderText = "QTY"
         Me.Column5.MinimumWidth = 6
         Me.Column5.Name = "Column5"
@@ -423,9 +427,9 @@ Partial Class Form1
         'Column6
         '
         Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle40.Format = "₹ #,##0.00"
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle40
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle5.Format = "₹ #,##0.00"
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column6.HeaderText = "Total"
         Me.Column6.MinimumWidth = 6
         Me.Column6.Name = "Column6"
@@ -434,59 +438,84 @@ Partial Class Form1
         '
         'btn_ManageFoods
         '
+        Me.btn_ManageFoods.BorderRadius = 10
+        Me.btn_ManageFoods.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_ManageFoods.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.btn_ManageFoods.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btn_ManageFoods.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btn_ManageFoods.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_ManageFoods.FillColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(21, Byte), Integer), CType(CType(21, Byte), Integer))
         Me.btn_ManageFoods.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.btn_ManageFoods.ForeColor = System.Drawing.Color.White
+        Me.btn_ManageFoods.Image = CType(resources.GetObject("btn_ManageFoods.Image"), System.Drawing.Image)
+        Me.btn_ManageFoods.ImageOffset = New System.Drawing.Point(2, 0)
+        Me.btn_ManageFoods.ImageSize = New System.Drawing.Size(20, 15)
         Me.btn_ManageFoods.Location = New System.Drawing.Point(10, 138)
         Me.btn_ManageFoods.Name = "btn_ManageFoods"
-        Me.btn_ManageFoods.Size = New System.Drawing.Size(180, 45)
+        Me.btn_ManageFoods.Size = New System.Drawing.Size(170, 45)
         Me.btn_ManageFoods.TabIndex = 6
-        Me.btn_ManageFoods.Text = "Manage Foods"
+        Me.btn_ManageFoods.Text = "   Manage Foods"
         '
         'btn_NewOrder
         '
+        Me.btn_NewOrder.BorderRadius = 10
+        Me.btn_NewOrder.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_NewOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.btn_NewOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btn_NewOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btn_NewOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_NewOrder.FillColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(21, Byte), Integer), CType(CType(21, Byte), Integer))
         Me.btn_NewOrder.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.btn_NewOrder.ForeColor = System.Drawing.Color.White
-        Me.btn_NewOrder.Location = New System.Drawing.Point(10, 197)
+        Me.btn_NewOrder.Image = CType(resources.GetObject("btn_NewOrder.Image"), System.Drawing.Image)
+        Me.btn_NewOrder.ImageOffset = New System.Drawing.Point(-7, 0)
+        Me.btn_NewOrder.ImageSize = New System.Drawing.Size(17, 17)
+        Me.btn_NewOrder.Location = New System.Drawing.Point(10, 195)
         Me.btn_NewOrder.Name = "btn_NewOrder"
-        Me.btn_NewOrder.Size = New System.Drawing.Size(180, 45)
+        Me.btn_NewOrder.Size = New System.Drawing.Size(170, 45)
         Me.btn_NewOrder.TabIndex = 7
         Me.btn_NewOrder.Text = "New Order"
+        Me.btn_NewOrder.TextOffset = New System.Drawing.Point(-3, 0)
         '
         'btn_CancelOrder
         '
+        Me.btn_CancelOrder.BorderRadius = 10
+        Me.btn_CancelOrder.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_CancelOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.btn_CancelOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btn_CancelOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btn_CancelOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_CancelOrder.FillColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(21, Byte), Integer), CType(CType(21, Byte), Integer))
         Me.btn_CancelOrder.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.btn_CancelOrder.ForeColor = System.Drawing.Color.White
-        Me.btn_CancelOrder.Location = New System.Drawing.Point(10, 256)
+        Me.btn_CancelOrder.Image = CType(resources.GetObject("btn_CancelOrder.Image"), System.Drawing.Image)
+        Me.btn_CancelOrder.ImageOffset = New System.Drawing.Point(-5, 0)
+        Me.btn_CancelOrder.Location = New System.Drawing.Point(10, 252)
         Me.btn_CancelOrder.Name = "btn_CancelOrder"
-        Me.btn_CancelOrder.Size = New System.Drawing.Size(180, 45)
+        Me.btn_CancelOrder.Size = New System.Drawing.Size(170, 45)
         Me.btn_CancelOrder.TabIndex = 8
         Me.btn_CancelOrder.Text = "Cancel Order"
+        Me.btn_CancelOrder.TextOffset = New System.Drawing.Point(-2, 0)
         '
         'btn_Report
         '
+        Me.btn_Report.BorderRadius = 10
+        Me.btn_Report.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_Report.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.btn_Report.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btn_Report.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btn_Report.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_Report.FillColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(21, Byte), Integer), CType(CType(21, Byte), Integer))
         Me.btn_Report.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.btn_Report.ForeColor = System.Drawing.Color.White
-        Me.btn_Report.Location = New System.Drawing.Point(10, 316)
+        Me.btn_Report.Image = CType(resources.GetObject("btn_Report.Image"), System.Drawing.Image)
+        Me.btn_Report.ImageOffset = New System.Drawing.Point(-12, 0)
+        Me.btn_Report.Location = New System.Drawing.Point(10, 309)
         Me.btn_Report.Name = "btn_Report"
-        Me.btn_Report.Size = New System.Drawing.Size(180, 45)
+        Me.btn_Report.Size = New System.Drawing.Size(170, 45)
         Me.btn_Report.TabIndex = 9
         Me.btn_Report.Text = "Reports"
+        Me.btn_Report.TextOffset = New System.Drawing.Point(-9, 0)
         '
         'Guna2Elipse1
         '
@@ -563,6 +592,9 @@ Partial Class Form1
         'Guna2ShadowPanel2
         '
         Me.Guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2ShadowPanel2.BackgroundImage = CType(resources.GetObject("Guna2ShadowPanel2.BackgroundImage"), System.Drawing.Image)
+        Me.Guna2ShadowPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Guna2ShadowPanel2.Controls.Add(Me.btn_Exit)
         Me.Guna2ShadowPanel2.Controls.Add(Me.btn_ManageFoods)
         Me.Guna2ShadowPanel2.Controls.Add(Me.btn_NewOrder)
         Me.Guna2ShadowPanel2.Controls.Add(Me.btn_CancelOrder)
@@ -576,6 +608,27 @@ Partial Class Form1
         Me.Guna2ShadowPanel2.ShadowShift = 0
         Me.Guna2ShadowPanel2.Size = New System.Drawing.Size(190, 564)
         Me.Guna2ShadowPanel2.TabIndex = 24
+        '
+        'btn_Exit
+        '
+        Me.btn_Exit.BorderRadius = 10
+        Me.btn_Exit.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_Exit.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btn_Exit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btn_Exit.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btn_Exit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_Exit.FillColor = System.Drawing.Color.Transparent
+        Me.btn_Exit.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btn_Exit.ForeColor = System.Drawing.Color.White
+        Me.btn_Exit.Image = CType(resources.GetObject("btn_Exit.Image"), System.Drawing.Image)
+        Me.btn_Exit.ImageOffset = New System.Drawing.Point(-1, 0)
+        Me.btn_Exit.ImageSize = New System.Drawing.Size(18, 18)
+        Me.btn_Exit.Location = New System.Drawing.Point(10, 512)
+        Me.btn_Exit.Name = "btn_Exit"
+        Me.btn_Exit.Size = New System.Drawing.Size(170, 45)
+        Me.btn_Exit.TabIndex = 10
+        Me.btn_Exit.Text = "Logout"
+        Me.btn_Exit.TextOffset = New System.Drawing.Point(2, 0)
         '
         'Guna2ShadowPanel3
         '
@@ -593,6 +646,17 @@ Partial Class Form1
         Me.Guna2ShadowPanel3.ShadowShift = 0
         Me.Guna2ShadowPanel3.Size = New System.Drawing.Size(401, 696)
         Me.Guna2ShadowPanel3.TabIndex = 25
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(14, 27)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(130, 35)
+        Me.Label6.TabIndex = 19
+        Me.Label6.Text = "Food Cart"
         '
         'lbl_time
         '
@@ -618,17 +682,6 @@ Partial Class Form1
         Me.lbl_date1.TabIndex = 23
         Me.lbl_date1.Text = "00.00"
         Me.lbl_date1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(14, 27)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(130, 35)
-        Me.Label6.TabIndex = 19
-        Me.Label6.Text = "Food Cart"
         '
         'Form1
         '
@@ -679,7 +732,7 @@ Partial Class Form1
     Friend WithEvents btn_NewOrder As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btn_CancelOrder As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btn_Report As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btn_Exit As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btn_Clear As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btn_Pay As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Elipse1 As Guna.UI2.WinForms.Guna2Elipse
     Friend WithEvents Guna2ShadowPanel1 As Guna.UI2.WinForms.Guna2ShadowPanel
@@ -689,15 +742,16 @@ Partial Class Form1
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents lbl_tot As Label
     Friend WithEvents txt_receivedAmount As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Guna2ShadowPanel3 As Guna.UI2.WinForms.Guna2ShadowPanel
+    Friend WithEvents txt_BalanceAmount As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents lbl_date1 As Label
+    Friend WithEvents lbl_time As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents btn_Exit As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Guna2ShadowPanel3 As Guna.UI2.WinForms.Guna2ShadowPanel
-    Friend WithEvents txt_BalanceAmount As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents lbl_date1 As Label
-    Friend WithEvents lbl_time As Label
-    Friend WithEvents Label6 As Label
 End Class

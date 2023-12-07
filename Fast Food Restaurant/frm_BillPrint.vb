@@ -14,8 +14,8 @@ Public Class frm_BillPrint
         Me.ReportViewer1.RefreshReport()
         ReportViewer1.LocalReport.DataSources.Clear()
         Try
-            ReportViewer1.LocalReport.ReportPath = Application.StartupPath & "\Report\Report1.rdlc "
-            ' ReportViewer1.LocalReport.ReportPath = "C:\Users\Dinesh\Documents\Fast Food Restaurant\Fast Food Restaurant\Report1.rdlc"
+            'ReportViewer1.LocalReport.ReportPath = Application.StartupPath & "\Report\Report1.rdlc "
+            ReportViewer1.LocalReport.ReportPath = "C:\Users\Dell\Downloads\Fast Food Restaurant\Fast Food Restaurant\Report\Report1.rdlc"
             ReportViewer1.LocalReport.DataSources.Clear()
             Dim ds As New DataSet1
             Dim da As New MySqlDataAdapter
